@@ -1,9 +1,10 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: CatalogSource
 metadata:
-  name: catalog-name
+  name: catalog
+  namespace: openshift-operators
 spec:
   sourceType: grpc
-  image: catalog-image
-  displayName: Catalog Name
+  image: catalog:0.0.1
+  displayName: Catalog
   publisher: grpc

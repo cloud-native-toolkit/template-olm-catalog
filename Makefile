@@ -1,3 +1,5 @@
+include PROJECT
+
 VERSION ?= 0.0.1
 
 IMG ?= catalog
@@ -18,3 +20,15 @@ image-build:
 
 image-push:
 	$(BUILDER) push $(IMG)
+
+update-catalog-source:
+	set -x
+	cat deploy/catalog-source.yaml | \
+	    sed -E "s/( +name:).*/\1 $(NAME)/g" | \
+		sed -E "s/( +displayName:).*/\1 $(DISPLAY_NAME)/g" | \
+		sed -E "s/( +image:).*/\1 $(TAG)/g" > deploy/catalog-source.yaml.bak && \
+		cp deploy/catalog-source.yaml.bak deploy/catalog-source.yaml && \
+		rm deploy/catalog-source.yaml.bak
+
+deploy: update-catalog-source
+	cat deploy/catalog-source.yaml

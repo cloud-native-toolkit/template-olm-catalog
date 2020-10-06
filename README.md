@@ -6,7 +6,9 @@ Template for creating OLM catalogs from bundles
 
 After the create a new project from this template, do the following to complete the setup:
 
-1. (Optional) Update the default value of the `IMG` variable in Makefile to match the name of your catalog image
+1. Set the `NAME` and `DISPLAY_NAME` values in `PROJECT`
+
+2. (Optional) Update the default value of the `IMG` variable in Makefile to match the name of your catalog image
 
 ## Usage
 
@@ -42,3 +44,16 @@ where:
 - `VERSION` is the version that should be built. This is optional and will default to the value provided in the Makefile
 - `BUILDER` is the build tool that should be used (e.g. docker or podman). This is optional and will default to the value provided in the Makefile
 
+### Update the CatalogSource
+
+Run the following to update `deploy/catalog-source.yaml` with the values from PROJECT
+
+```shell script
+make update-catalog-source
+```
+
+### Deploy the catalog
+
+```shell script
+make deploy
+```
