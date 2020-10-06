@@ -1,0 +1,11 @@
+namespace: openshift-marketplace
+
+namePrefix: custom-
+
+resources:
+- catalog-source.yaml
+
+images:
+- name: catalog
+  newName: myname
+  newTag: 0.0.1

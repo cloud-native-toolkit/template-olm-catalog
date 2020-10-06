@@ -1,0 +1,9 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: catalog-name
+spec:
+  sourceType: grpc
+  image: catalog-image
+  displayName: Catalog Name
+  publisher: grpc
